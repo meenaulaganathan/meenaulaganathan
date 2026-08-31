@@ -51,7 +51,7 @@ export function About() {
 
         <RevealGroup className="grid gap-4 sm:grid-cols-2" gap={0.1}>
           {highlights.map((item, i) => {
-            const Icon = icons[i % icons.length];
+            const Icon = icons[i % icons.length]!;
             return (
               <motion.article
                 key={item.title}

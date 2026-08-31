@@ -18,7 +18,7 @@ export function Skills() {
 
       <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" gap={0.08}>
         {skillGroups.map((group, i) => {
-          const Icon = icons[i % icons.length];
+          const Icon = icons[i % icons.length]!;
           return (
             <motion.article
               key={group.category}
