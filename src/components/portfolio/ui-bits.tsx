@@ -43,12 +43,9 @@ export function SectionHeading({
   );
 }
 
-type ButtonBase = {
-  variant?: "primary" | "outline" | "ghost";
-  size?: "md" | "lg";
-  children: ReactNode;
-  className?: string;
-};
+type Variant = "primary" | "outline" | "ghost";
+type Size = "md" | "lg";
+type ActionProps = { variant?: Variant; size?: Size; className?: string };
 
 const styles = {
   base: "group relative inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none disabled:opacity-60",
@@ -60,7 +57,7 @@ const styles = {
   },
 };
 
-function classesFor({ variant = "primary", size = "lg", className }: ButtonBase) {
+function classesFor(variant: Variant = "primary", size: Size = "lg", className?: string) {
   return cn(styles.base, styles.size[size], styles.variant[variant], className);
 }
 
@@ -75,13 +72,13 @@ export function ActionLink({
   className,
   children,
   ...rest
-}: ButtonBase & ComponentProps<"a">) {
+}: ComponentProps<typeof motion.a> & ActionProps) {
   return (
     <motion.a
       whileHover={hover}
       whileTap={tap}
       transition={transition}
-      className={classesFor({ variant, size, className })}
+      className={classesFor(variant, size, className)}
       {...rest}
     >
       {children}
@@ -96,18 +93,19 @@ export function ActionButton({
   className,
   children,
   ...rest
-}: ButtonBase & ComponentProps<"button">) {
+}: ComponentProps<typeof motion.button> & ActionProps) {
   return (
     <motion.button
       whileHover={hover}
       whileTap={tap}
       transition={transition}
-      className={classesFor({ variant, size, className })}
+      className={classesFor(variant, size, className)}
       {...rest}
     >
       {children}
     </motion.button>
   );
+
 }
 
 export function Chip({ children }: { children: ReactNode }) {
