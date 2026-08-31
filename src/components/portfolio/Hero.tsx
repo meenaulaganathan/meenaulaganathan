@@ -61,7 +61,7 @@ export function Hero() {
   return (
     <section id="home" ref={ref} className="relative min-h-screen scroll-mt-0 overflow-hidden">
       <motion.div
-        style={reduced ? undefined : { y: parallaxY, opacity: fade }}
+        {...(reduced ? {} : { style: { y: parallaxY, opacity: fade } })}
         className="mx-auto grid min-h-screen max-w-6xl items-center gap-10 px-5 pt-28 pb-20 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6"
       >
         {/* Copy */}
@@ -160,7 +160,7 @@ export function Hero() {
         className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-muted-foreground transition-colors hover:text-foreground"
       >
         <motion.span
-          animate={reduced ? undefined : { y: [0, 8, 0] }}
+          {...(reduced ? {} : { animate: { y: [0, 8, 0] } })}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="block"
         >
