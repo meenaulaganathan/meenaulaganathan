@@ -53,8 +53,39 @@ export function Education() {
                   {item.period}
                 </span>
                 <h3 className="mt-2 font-display text-lg font-semibold">{item.degree}</h3>
-                <p className="mt-1 text-sm text-foreground/80">{item.institution}</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.detail}</p>
+                {item.institution && (
+                  <p className="mt-1 text-sm text-foreground/80">{item.institution}</p>
+                )}
+
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {item.percentage && (
+                    <span className="inline-flex items-center rounded-full bg-brand/10 px-2.5 py-1 text-xs font-medium text-brand">
+                      Percentage: {item.percentage}
+                    </span>
+                  )}
+                  {item.stream && (
+                    <span className="inline-flex items-center rounded-full bg-brand/10 px-2.5 py-1 text-xs font-medium text-brand">
+                      Stream: {item.stream}
+                    </span>
+                  )}
+                  {item.cgpa && (
+                    <span className="inline-flex items-center rounded-full bg-brand/10 px-2.5 py-1 text-xs font-medium text-brand">
+                      CGPA: {item.cgpa}
+                    </span>
+                  )}
+                </div>
+
+                {item.coursework && item.coursework.length > 0 && (
+                  <ul className="mt-4 list-inside list-disc space-y-1 text-sm leading-relaxed text-muted-foreground">
+                    {item.coursework.map((course) => (
+                      <li key={course}>{course}</li>
+                    ))}
+                  </ul>
+                )}
+
+                {item.detail && (
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.detail}</p>
+                )}
               </motion.div>
             </li>
           ))}
