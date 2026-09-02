@@ -47,16 +47,16 @@ export const highlights = [
   },
 ];
 
-export const skillGroups = [
-  { category: "Programming", items: ["Java", "C"] },
-  { category: "Database", items: ["SQL", "MySQL"] },
-  { category: "Web", items: ["HTML5", "CSS3", "JavaScript"] },
-  { category: "Development", items: ["React.js", "REST APIs"] },
-  { category: "Tools", items: ["Git", "GitHub", "VS Code"] },
-  {
-    category: "Concepts",
-    items: ["OOP", "Data Structures", "Backend Development"],
-  },
+export const skills = [
+  "Java",
+  "C",
+  "SQL",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React.js",
+  "Git",
+  "GitHub",
 ];
 
 export type Project = {
