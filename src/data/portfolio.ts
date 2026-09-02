@@ -139,7 +139,7 @@ export const education: EducationItem[] = [
   {
     period: "2022 – 2026",
     degree: "B.Tech – Information Technology",
-    institution: "Your College / University Name",
+    institution: "Francis Xavier Engineering College",
     cgpa: "7.82",
     coursework: [
       "Database Management Systems",
