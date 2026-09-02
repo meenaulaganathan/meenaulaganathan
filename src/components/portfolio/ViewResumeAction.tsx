@@ -48,7 +48,19 @@ export function ViewResumeAction() {
       blobUrls.current.add(blobUrl);
 
       if (resumeTab && !resumeTab.closed) {
-        resumeTab.location.replace(`${blobUrl}#view=FitH`);
+        const viewer = resumeTab.document;
+        viewer.title = `${profile.fullName} — Resume`;
+        viewer.body.replaceChildren();
+        viewer.documentElement.style.height = "100%";
+        viewer.body.style.height = "100%";
+        viewer.body.style.margin = "0";
+        const frame = viewer.createElement("iframe");
+        frame.title = `${profile.fullName} resume PDF`;
+        frame.src = `${blobUrl}#view=FitH`;
+        frame.style.width = "100%";
+        frame.style.height = "100%";
+        frame.style.border = "0";
+        viewer.body.append(frame);
         resumeTab.opener = null;
       } else {
         // Fallback when the browser blocks new tabs: keep the PDF visible by
