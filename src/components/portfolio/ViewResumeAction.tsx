@@ -36,7 +36,8 @@ export function ViewResumeAction() {
 
     setLoading(true);
     try {
-      const response = await fetch(profile.resumePath);
+      const resumeSource = profile.resumeViewPath.split("#", 1)[0];
+      const response = await fetch(resumeSource, { cache: "force-cache" });
       if (!response.ok) throw new Error(`Resume request failed (${response.status})`);
 
       const bytes = await response.blob();
