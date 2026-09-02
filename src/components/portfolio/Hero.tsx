@@ -1,9 +1,10 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Download, FileText, FolderCode, Mail } from "lucide-react";
+import { ArrowDown, Download, FolderCode, Mail } from "lucide-react";
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { profile } from "@/data/portfolio";
 import { EASE, stagger } from "./motion-primitives";
 import { ActionLink, SectionLabel } from "./ui-bits";
+import { ViewResumeAction } from "./ViewResumeAction";
 
 // Heavy 3D scene: loaded only in the browser, after hydration.
 const HeroScene = lazy(() => import("@/components/three/HeroScene"));
@@ -105,9 +106,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: EASE }}
             className="mt-9 flex flex-wrap gap-3"
           >
-            <ActionLink href={profile.resumeViewPath} target="_blank" rel="noreferrer">
-              <FileText className="size-4" /> View Resume
-            </ActionLink>
+            <ViewResumeAction />
             <ActionLink
               href={profile.resumePath}
               download={profile.resumeFileName}
