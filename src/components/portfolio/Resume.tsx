@@ -55,11 +55,11 @@ export function Resume() {
               </ul>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <ActionLink href={profile.resumePath} target="_blank" rel="noreferrer">
+                <ActionLink href={profile.resumeViewPath} target="_blank" rel="noreferrer">
                   <FileText className="size-4" /> View Resume
                 </ActionLink>
                 <ActionLink
-                  href={profile.resumePath}
+                  href={profile.resumeViewPath}
                   download={profile.resumeFileName}
                   variant="outline"
                 >
@@ -69,7 +69,7 @@ export function Resume() {
 
               {/* Update the resume file by replacing the asset in src/assets/Meena-Resume.pdf.asset.json */}
               <p className="mt-4 font-mono text-xs text-muted-foreground">
-                {profile.resumePath}
+                {profile.resumeViewPath}
               </p>
             </div>
           </div>
