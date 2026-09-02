@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Portfolio of Meena, a B.Tech Information Technology graduate and aspiring software / backend developer.",
       },
       { name: "author", content: "Meena Ulaganathan" },
-      { name: "theme-color", content: "#0b0d14" },
+      { name: "theme-color", content: "#070B14" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
