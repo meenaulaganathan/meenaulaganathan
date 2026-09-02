@@ -105,7 +105,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: EASE }}
             className="mt-9 flex flex-wrap gap-3"
           >
-            <ActionLink href={profile.resumePath} target="_blank" rel="noreferrer">
+            <ActionLink href={profile.resumeViewPath} target="_blank" rel="noreferrer">
               <FileText className="size-4" /> View Resume
             </ActionLink>
             <ActionLink
