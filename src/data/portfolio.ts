@@ -20,9 +20,12 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/your-profile",
     github: "https://github.com/your-username",
   },
-  // Resume file: hosted via Lovable Assets CDN.
+  // Resume download: hosted via Lovable Assets CDN.
   resumePath: resumeAsset.url,
+  // Resume view: served directly from /public so ad blockers never block it.
+  resumeViewPath: "/resume/Meena-Resume.pdf",
   resumeFileName: "Meena-Resume.pdf",
+
 };
 
 export const highlights = [
