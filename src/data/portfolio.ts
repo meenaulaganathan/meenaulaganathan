@@ -20,8 +20,8 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/your-profile",
     github: "https://github.com/your-username",
   },
-  // Resume file: drop your PDF at public/resume/ and update the path below.
-  resumePath: "/resume/Meena-Resume.pdf",
+  // Resume file: hosted via Lovable Assets CDN.
+  resumePath: resumeAsset.url,
   resumeFileName: "Meena-Resume.pdf",
 };
 
