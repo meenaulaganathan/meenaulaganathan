@@ -67,8 +67,7 @@ export function Resume() {
                 </ActionLink>
               </div>
 
-              {/* Replace public/resume/Meena-Resume.pdf with your real PDF,
-                  or change `resumePath` in src/data/portfolio.ts */}
+              {/* Update the resume file by replacing the asset in src/assets/Meena-Resume.pdf.asset.json */}
               <p className="mt-4 font-mono text-xs text-muted-foreground">
                 {profile.resumePath}
               </p>
