@@ -23,7 +23,7 @@ export const profile = {
   // Resume download: hosted via Lovable Assets CDN.
   resumePath: resumeAsset.url,
   // Resume view: served directly from /public so ad blockers never block it.
-  resumeViewPath: "/resume/Meena-Resume.pdf",
+  resumeViewPath: "/resume/Meena-Resume.pdf#view=FitH",
   resumeFileName: "Meena-Resume.pdf",
 
 };
