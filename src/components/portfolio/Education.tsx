@@ -45,8 +45,8 @@ export function Education() {
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.65, ease: EASE }}
                 whileHover={{ y: -5 }}
-                className={`glass card-glow rounded-2xl p-6 md:w-[calc(50%-2.5rem)] ${
-                  i % 2 === 0 ? "md:mr-auto md:text-right" : "md:ml-auto"
+                className={`glass card-glow rounded-2xl p-6 text-left md:w-[calc(50%-2.5rem)] ${
+                  i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
                 }`}
               >
                 <span className="font-mono text-xs tracking-widest text-accent uppercase">
