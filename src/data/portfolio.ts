@@ -126,13 +126,13 @@ export const education: EducationItem[] = [
   {
     period: "2019 – 2020",
     degree: "SSLC",
-    institution: "Your School Name",
+    institution: "Andrews Matric Higher Secondary School",
     percentage: "72%",
   },
   {
     period: "2021 – 2022",
     degree: "HSC",
-    institution: "Your School Name",
+    institution: "Andrews Matric Higher Secondary School",
     stream: "Computer Science",
     percentage: "78%",
   },
