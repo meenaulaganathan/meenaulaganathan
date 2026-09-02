@@ -46,12 +46,12 @@ function DeveloperCore({ reduced }: { reduced: boolean }) {
         <mesh castShadow>
           <icosahedronGeometry args={[1.15, 0]} />
           <meshPhysicalMaterial
-            color="#5b7cfa"
+            color="#00D9C0"
             roughness={0.18}
             metalness={0.85}
             clearcoat={1}
             clearcoatRoughness={0.15}
-            emissive="#1b2a6b"
+            emissive="#083E3D"
             emissiveIntensity={0.5}
           />
         </mesh>
@@ -59,14 +59,14 @@ function DeveloperCore({ reduced }: { reduced: boolean }) {
         {/* Wireframe shell */}
         <mesh ref={shell}>
           <icosahedronGeometry args={[1.75, 1]} />
-          <meshBasicMaterial color="#7de3ff" wireframe transparent opacity={0.35} />
+          <meshBasicMaterial color="#38BDF8" wireframe transparent opacity={0.35} />
         </mesh>
 
         {/* Orbiting rings */}
         <mesh geometry={ringGeometry} rotation={[Math.PI / 2.2, 0, 0]}>
           <meshStandardMaterial
-            color="#a86bff"
-            emissive="#a86bff"
+            color="#00D9C0"
+            emissive="#00D9C0"
             emissiveIntensity={1.1}
             roughness={0.3}
             metalness={0.6}
@@ -74,8 +74,8 @@ function DeveloperCore({ reduced }: { reduced: boolean }) {
         </mesh>
         <mesh geometry={ringGeometry} rotation={[Math.PI / 2.2, Math.PI / 2.6, 0.6]} scale={0.82}>
           <meshStandardMaterial
-            color="#4ad9ff"
-            emissive="#4ad9ff"
+            color="#38BDF8"
+            emissive="#38BDF8"
             emissiveIntensity={0.9}
             roughness={0.3}
             metalness={0.6}
@@ -108,7 +108,7 @@ function Sparks({ count = 60 }: { count?: number }) {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.045} color="#9fd8ff" transparent opacity={0.6} sizeAttenuation />
+      <pointsMaterial size={0.045} color="#7DE4F0" transparent opacity={0.6} sizeAttenuation />
     </points>
   );
 }
@@ -123,22 +123,22 @@ export default function HeroScene({ reduced = false }: { reduced?: boolean }) {
     >
       <ambientLight intensity={0.4} />
       <directionalLight position={[4, 6, 5]} intensity={1.6} />
-      <pointLight position={[-5, -3, 2]} intensity={40} color="#a86bff" distance={12} />
-      <pointLight position={[5, 3, -2]} intensity={30} color="#4ad9ff" distance={12} />
+      <pointLight position={[-5, -3, 2]} intensity={40} color="#00D9C0" distance={12} />
+      <pointLight position={[5, 3, -2]} intensity={30} color="#38BDF8" distance={12} />
 
       {/* Local lightformers — no CDN HDR fetch */}
       <Environment resolution={128}>
-        <Lightformer intensity={2.2} position={[0, 4, 2]} scale={[8, 8, 1]} color="#dbe6ff" />
+        <Lightformer intensity={2.2} position={[0, 4, 2]} scale={[8, 8, 1]} color="#E0F9FF" />
         <Lightformer
           intensity={1.4}
-          color="#7aa2ff"
+          color="#38BDF8"
           position={[-5, 1, -1]}
           rotation-y={Math.PI / 2}
           scale={[16, 2, 1]}
         />
         <Lightformer
           intensity={1.2}
-          color="#c58cff"
+          color="#00D9C0"
           position={[5, -1, 1]}
           rotation-y={-Math.PI / 2}
           scale={[16, 2, 1]}

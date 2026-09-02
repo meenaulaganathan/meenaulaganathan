@@ -6,7 +6,7 @@
 
 /*
  * Design system — premium dark developer portfolio.
- * Base: deep charcoal. Accents: blue / violet / cyan gradients.
+ * Base: midnight black / deep navy. Accents: electric teal → sky blue.
  * All colors use oklch and are exposed as semantic tokens only.
  */
 
@@ -50,37 +50,36 @@
 :root {
   --radius: 0.875rem;
 
-  --background: oklch(0.16 0.018 264);
-  --foreground: oklch(0.97 0.005 258);
-  --surface: oklch(0.21 0.022 264);
-  --surface-foreground: oklch(0.97 0.005 258);
-  --card: oklch(0.22 0.024 265);
-  --card-foreground: oklch(0.97 0.005 258);
-  --popover: oklch(0.2 0.022 265);
-  --popover-foreground: oklch(0.97 0.005 258);
+  --background: oklch(0.1505 0.018 280.91); /* #070B14 */
+  --foreground: oklch(0.9873 0.0277 24.52); /* #F8FAFC */
+  --surface: oklch(0.1984 0.0323 277.89); /* #0D1526 */
+  --surface-foreground: oklch(0.9873 0.0277 24.52);
+  --card: oklch(0.21 0.0279 277.51); /* #101827 */
+  --card-foreground: oklch(0.9873 0.0277 24.52);
+  --popover: oklch(0.1984 0.0323 277.89);
+  --popover-foreground: oklch(0.9873 0.0277 24.52);
 
-  --primary: oklch(0.66 0.19 258);
-  --primary-foreground: oklch(0.15 0.02 264);
-  --secondary: oklch(0.28 0.03 265);
-  --secondary-foreground: oklch(0.96 0.005 258);
-  --muted: oklch(0.26 0.026 265);
-  --muted-foreground: oklch(0.72 0.024 260);
-  --accent: oklch(0.78 0.15 200);
-  --accent-foreground: oklch(0.16 0.02 264);
-  --violet: oklch(0.66 0.2 300);
-  --cyan: oklch(0.82 0.14 195);
+  --primary: oklch(0.7957 0.1246 175.02); /* #00D9C0 */
+  --primary-foreground: oklch(0.1482 0.0188 269.03); /* #050B14 */
+  --secondary: oklch(0.2443 0.0323 276.71); /* #162032 */
+  --secondary-foreground: oklch(0.9873 0.0277 24.52);
+  --muted: oklch(0.2325 0.0347 276.61); /* #131d30 */
+  --muted-foreground: oklch(0.713 0.0256 299.93); /* #94A3B8 */
+  --accent: oklch(0.7562 0.1102 239.3); /* #38BDF8 */
+  --accent-foreground: oklch(0.1482 0.0188 269.03);
+  --violet: oklch(0.7562 0.1102 239.3); /* sky blue as secondary accent */
+  --cyan: oklch(0.7957 0.1246 175.02); /* electric teal as primary accent */
 
   --destructive: oklch(0.62 0.21 25);
   --destructive-foreground: oklch(0.98 0.003 258);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.66 0.19 258);
+  --ring: oklch(0.7957 0.1246 175.02);
 
   --gradient-brand: linear-gradient(
     120deg,
     var(--primary) 0%,
-    var(--violet) 50%,
-    var(--cyan) 100%
+    var(--accent) 100%
   );
   --gradient-surface: linear-gradient(
     160deg,
