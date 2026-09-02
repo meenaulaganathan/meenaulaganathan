@@ -111,19 +111,43 @@ export const projects: Project[] = [
   },
 ];
 
-export const education = [
+export type EducationItem = {
+  period: string;
+  degree: string;
+  institution?: string;
+  detail?: string;
+  percentage?: string;
+  stream?: string;
+  cgpa?: string;
+  coursework?: string[];
+};
+
+export const education: EducationItem[] = [
   {
-    period: "2021 — 2025", // <-- editable
-    degree: "B.Tech, Information Technology",
-    institution: "Your College / University Name", // <-- editable placeholder
-    detail:
-      "Core coursework in programming, data structures, databases, operating systems, computer networks and software engineering.",
+    period: "2019 – 2020",
+    degree: "10th Standard",
+    institution: "Your School Name",
+    percentage: "72%",
   },
   {
-    period: "2019 — 2021", // <-- editable
-    degree: "Higher Secondary Education",
-    institution: "Your School Name", // <-- editable placeholder
-    detail: "Computer Science stream with mathematics and physics.",
+    period: "2021 – 2022",
+    degree: "12th Standard",
+    institution: "Your School Name",
+    stream: "Computer Science",
+    percentage: "78%",
+  },
+  {
+    period: "2022 – 2026",
+    degree: "B.Tech – Information Technology",
+    institution: "Your College / University Name",
+    cgpa: "7.82",
+    coursework: [
+      "Database Management Systems",
+      "Object-Oriented Programming (OOP)",
+      "Data Structures",
+      "Operating Systems",
+      "Computer Networks",
+    ],
   },
 ];
 
