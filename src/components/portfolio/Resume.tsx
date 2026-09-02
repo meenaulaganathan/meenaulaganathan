@@ -3,6 +3,7 @@ import { Download, FileText } from "lucide-react";
 import { profile } from "@/data/portfolio";
 import { Reveal, scaleFade } from "./motion-primitives";
 import { ActionLink, SectionHeading, SectionShell } from "./ui-bits";
+import { ViewResumeAction } from "./ViewResumeAction";
 
 export function Resume() {
   return (
@@ -55,9 +56,7 @@ export function Resume() {
               </ul>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <ActionLink href={profile.resumeViewPath} target="_blank" rel="noreferrer">
-                  <FileText className="size-4" /> View Resume
-                </ActionLink>
+                <ViewResumeAction />
                 <ActionLink
                   href={profile.resumePath}
                   download={profile.resumeFileName}
