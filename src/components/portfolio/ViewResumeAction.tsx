@@ -97,7 +97,7 @@ export function ViewResumeAction() {
         canvas.style.boxShadow = "0 2px 12px rgba(0, 0, 0, 0.35)";
         canvas.setAttribute("aria-label", `Resume page ${pageNumber} of ${pdfDocument.numPages}`);
         pages.append(canvas);
-        await page.render({ canvas, canvasContext: context, viewport }).promise;
+        await page.render({ canvasContext: context, viewport }).promise;
       }
 
       status.replaceWith(pages);
