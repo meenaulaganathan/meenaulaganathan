@@ -59,7 +59,7 @@ export function Resume() {
                   <FileText className="size-4" /> View Resume
                 </ActionLink>
                 <ActionLink
-                  href={profile.resumeViewPath}
+                  href={profile.resumePath}
                   download={profile.resumeFileName}
                   variant="outline"
                 >
