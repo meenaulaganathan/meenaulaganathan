@@ -125,13 +125,13 @@ export type EducationItem = {
 export const education: EducationItem[] = [
   {
     period: "2019 – 2020",
-    degree: "10th Standard",
+    degree: "SSLC",
     institution: "Your School Name",
     percentage: "72%",
   },
   {
     period: "2021 – 2022",
-    degree: "12th Standard",
+    degree: "HSC",
     institution: "Your School Name",
     stream: "Computer Science",
     percentage: "78%",
