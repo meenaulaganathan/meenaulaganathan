@@ -68,7 +68,7 @@ export function ViewResumeAction() {
 
       const pdfjs = await import("pdfjs-dist");
       pdfjs.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
-      const documentTask = pdfjs.getDocument(blobUrl);
+      const documentTask = pdfjs.getDocument({ data: new Uint8Array(await pdf.arrayBuffer()) });
       const pdfDocument = await documentTask.promise;
       const viewer = viewerWindow.document;
       const pages = viewer.createElement("main");
