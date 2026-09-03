@@ -14,11 +14,11 @@ export const profile = {
   summary:
     "I build reliable, well-structured backend systems and clean web interfaces. My focus is on Java, SQL and core computer-science fundamentals, paired with modern web tooling like React.",
   location: "India",
-  email: "meena@example.com", // <-- replace with your email
+  email: "meenaulaganathan09@gmail.com",
   // Social links — replace with your real profiles
   socials: {
-    linkedin: "https://www.linkedin.com/in/your-profile",
-    github: "https://github.com/your-username",
+    linkedin: "https://www.linkedin.com/in/meena-u-331169259/",
+    github: "https://github.com/meenaulaganathan",
   },
   // Resume download: hosted via Lovable Assets CDN.
   resumePath: resumeAsset.url,
