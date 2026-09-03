@@ -86,22 +86,22 @@ export function Contact() {
             </span>
           </motion.a>
 
-          <motion.div variants={fadeUp} whileHover={{ y: -5 }}>
-            <a
-              href="https://www.linkedin.com/in/meena-u-331169259/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass card-glow flex items-center gap-4 rounded-2xl p-5"
-            >
-              <span className="glass inline-flex size-11 items-center justify-center rounded-xl">
-                <Linkedin className="size-5 text-accent" />
-              </span>
-              <span>
-                <span className="block text-sm font-semibold">LinkedIn</span>
-                <span className="block text-sm text-muted-foreground">Connect with me</span>
-              </span>
-            </a>
-          </motion.div>
+          <motion.a
+            variants={fadeUp}
+            whileHover={{ y: -5 }}
+            href="https://www.linkedin.com/in/meena-u-331169259/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass card-glow flex items-center gap-4 rounded-2xl p-5"
+          >
+            <span className="glass inline-flex size-11 items-center justify-center rounded-xl">
+              <Linkedin className="size-5 text-accent" />
+            </span>
+            <span>
+              <span className="block text-sm font-semibold">LinkedIn</span>
+              <span className="block text-sm text-muted-foreground">Connect with me</span>
+            </span>
+          </motion.a>
 
           <motion.a
             variants={fadeUp}
