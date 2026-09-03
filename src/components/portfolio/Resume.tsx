@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, FileText } from "lucide-react";
+import resumePreview from "@/assets/resume-preview.jpg.asset.json";
 import { profile } from "@/data/portfolio";
 import { Reveal, scaleFade } from "./motion-primitives";
 import { ActionLink, SectionHeading, SectionShell } from "./ui-bits";
