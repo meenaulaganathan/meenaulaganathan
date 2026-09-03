@@ -86,28 +86,39 @@ export function Contact() {
             </span>
           </motion.a>
 
-          {[
-            { Icon: Linkedin, label: "LinkedIn", href: profile.socials.linkedin, hint: "Connect with me" },
-            { Icon: Github, label: "GitHub", href: profile.socials.github, hint: "See my code" },
-          ].map(({ Icon, label, href, hint }) => (
-            <motion.a
-              key={label}
-              variants={fadeUp}
-              whileHover={{ y: -5 }}
-              href={href}
+          <motion.div variants={fadeUp} whileHover={{ y: -5 }}>
+            <a
+              href="https://www.linkedin.com/in/meena-u-331169259/"
               target="_blank"
               rel="noopener noreferrer"
               className="glass card-glow flex items-center gap-4 rounded-2xl p-5"
             >
               <span className="glass inline-flex size-11 items-center justify-center rounded-xl">
-                <Icon className="size-5 text-accent" />
+                <Linkedin className="size-5 text-accent" />
               </span>
               <span>
-                <span className="block text-sm font-semibold">{label}</span>
-                <span className="block text-sm text-muted-foreground">{hint}</span>
+                <span className="block text-sm font-semibold">LinkedIn</span>
+                <span className="block text-sm text-muted-foreground">Connect with me</span>
               </span>
-            </motion.a>
-          ))}
+            </a>
+          </motion.div>
+
+          <motion.a
+            variants={fadeUp}
+            whileHover={{ y: -5 }}
+            href={profile.socials.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass card-glow flex items-center gap-4 rounded-2xl p-5"
+          >
+            <span className="glass inline-flex size-11 items-center justify-center rounded-xl">
+              <Github className="size-5 text-accent" />
+            </span>
+            <span>
+              <span className="block text-sm font-semibold">GitHub</span>
+              <span className="block text-sm text-muted-foreground">See my code</span>
+            </span>
+          </motion.a>
         </RevealGroup>
 
         <Reveal variants={slideRight}>
