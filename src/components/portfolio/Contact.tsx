@@ -96,7 +96,7 @@ export function Contact() {
               whileHover={{ y: -5 }}
               href={href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="glass card-glow flex items-center gap-4 rounded-2xl p-5"
             >
               <span className="glass inline-flex size-11 items-center justify-center rounded-xl">
