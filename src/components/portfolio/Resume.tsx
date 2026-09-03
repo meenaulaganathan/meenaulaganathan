@@ -25,23 +25,20 @@ export function Resume() {
               whileHover={{ rotateY: -10, rotateX: 6, y: -6 }}
               transition={{ duration: 0.4 }}
               style={{ transformPerspective: 900 }}
-              className="glass mx-auto w-40 shrink-0 rounded-xl p-4 sm:w-48"
+              className="glass mx-auto w-40 shrink-0 overflow-hidden rounded-xl p-2 sm:w-48"
             >
-              <div className="bg-brand h-2 w-16 rounded-full" />
-              <div className="mt-3 space-y-2">
-                {[100, 85, 92, 70, 96, 60, 88, 78].map((w, i) => (
-                  <div
-                    key={i}
-                    className="h-1.5 rounded-full bg-secondary"
-                    style={{ width: `${w}%` }}
-                  />
-                ))}
-              </div>
-              <div className="mt-4 flex items-center gap-2 text-muted-foreground">
+              <img
+                src={resumePreview.url}
+                alt={`First page of ${profile.fullName}'s resume`}
+                loading="lazy"
+                className="w-full rounded-lg"
+              />
+              <div className="mt-2 flex items-center justify-center gap-2 text-muted-foreground">
                 <FileText className="size-3.5" />
                 <span className="font-mono text-[0.6rem] tracking-wide">PDF</span>
               </div>
             </motion.div>
+
 
             <div>
               <h3 className="font-display text-2xl font-semibold">{profile.fullName}</h3>
