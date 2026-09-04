@@ -137,9 +137,8 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* 3D object + glow */}
+        {/* Interactive 3D object */}
         <div className="relative h-[22rem] w-full sm:h-[26rem] lg:h-[34rem]">
-          <div className="glow-orb bg-brand top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 opacity-45 sm:h-96 sm:w-96" />
           {scene === "on" && !reduced ? (
             <Suspense fallback={<SceneFallback />}>
               <HeroScene reduced={reduced} />

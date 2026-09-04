@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Github, Linkedin, Loader2, Mail, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -12,7 +12,6 @@ const inputClass =
   "w-full rounded-xl border border-input bg-secondary/40 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary/70 focus:bg-secondary/70";
 
 export function Contact() {
-  const reduced = useReducedMotion();
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Errors>({});
   const [sending, setSending] = useState(false);
@@ -51,17 +50,6 @@ export function Contact() {
 
   return (
     <SectionShell id="contact">
-      {/* Subtle animated backdrop for the contact area */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        {!reduced && (
-          <motion.div
-            className="glow-orb bg-cyan top-10 left-[15%] h-72 w-72"
-            animate={{ x: [0, 60, 0], y: [0, 40, 0], opacity: [0.2, 0.35, 0.2] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          />
-        )}
-      </div>
-
       <SectionHeading
         label="Contact"
         title="Let's build"
