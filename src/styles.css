@@ -4,23 +4,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system — premium dark developer portfolio.
- * Base: midnight black / deep navy. Accents: electric teal → sky blue.
- * All colors use oklch and are exposed as semantic tokens only.
- */
+/* Warm editorial design system: cream paper, sandal accents and walnut ink. */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
 
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Libre Baskerville", ui-serif, Georgia, serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -48,46 +44,38 @@
 }
 
 :root {
-  --radius: 0.875rem;
+  --radius: 0.5rem;
 
-  --background: oklch(0.1505 0.018 280.91); /* #070B14 */
-  --foreground: oklch(0.9873 0.0277 24.52); /* #F8FAFC */
-  --surface: oklch(0.1984 0.0323 277.89); /* #0D1526 */
-  --surface-foreground: oklch(0.9873 0.0277 24.52);
-  --card: oklch(0.21 0.0279 277.51); /* #101827 */
-  --card-foreground: oklch(0.9873 0.0277 24.52);
-  --popover: oklch(0.1984 0.0323 277.89);
-  --popover-foreground: oklch(0.9873 0.0277 24.52);
+  --background: oklch(0.975 0.014 78); /* warm off-white */
+  --foreground: oklch(0.29 0.025 52); /* charcoal walnut */
+  --surface: oklch(0.949 0.023 76); /* cream band */
+  --surface-foreground: oklch(0.29 0.025 52);
+  --card: oklch(0.988 0.009 78);
+  --card-foreground: oklch(0.29 0.025 52);
+  --popover: oklch(0.988 0.009 78);
+  --popover-foreground: oklch(0.29 0.025 52);
 
-  --primary: oklch(0.7957 0.1246 175.02); /* #00D9C0 */
-  --primary-foreground: oklch(0.1482 0.0188 269.03); /* #050B14 */
-  --secondary: oklch(0.2443 0.0323 276.71); /* #162032 */
-  --secondary-foreground: oklch(0.9873 0.0277 24.52);
-  --muted: oklch(0.2325 0.0347 276.61); /* #131d30 */
-  --muted-foreground: oklch(0.713 0.0256 299.93); /* #94A3B8 */
-  --accent: oklch(0.7562 0.1102 239.3); /* #38BDF8 */
-  --accent-foreground: oklch(0.1482 0.0188 269.03);
-  --violet: oklch(0.7562 0.1102 239.3); /* sky blue as secondary accent */
-  --cyan: oklch(0.7957 0.1246 175.02); /* electric teal as primary accent */
+  --primary: oklch(0.68 0.092 67); /* medium sandal */
+  --primary-foreground: oklch(0.27 0.035 49);
+  --secondary: oklch(0.925 0.031 74);
+  --secondary-foreground: oklch(0.33 0.039 51);
+  --muted: oklch(0.935 0.021 75);
+  --muted-foreground: oklch(0.49 0.025 55);
+  --accent: oklch(0.43 0.07 48); /* walnut */
+  --accent-foreground: oklch(0.975 0.014 78);
+  --violet: oklch(0.62 0.075 58);
+  --cyan: oklch(0.72 0.075 72);
 
   --destructive: oklch(0.62 0.21 25);
   --destructive-foreground: oklch(0.98 0.003 258);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.7957 0.1246 175.02);
+  --border: oklch(0.82 0.038 69);
+  --input: oklch(0.79 0.04 68);
+  --ring: oklch(0.53 0.068 53);
 
-  --gradient-brand: linear-gradient(
-    120deg,
-    var(--primary) 0%,
-    var(--accent) 100%
-  );
-  --gradient-surface: linear-gradient(
-    160deg,
-    color-mix(in oklab, var(--surface) 92%, transparent),
-    color-mix(in oklab, var(--background) 88%, transparent)
-  );
-  --shadow-glow: 0 24px 70px -28px color-mix(in oklab, var(--primary) 55%, transparent);
-  --shadow-card: 0 20px 50px -30px oklch(0 0 0 / 80%);
+  --gradient-brand: linear-gradient(120deg, var(--primary), var(--primary));
+  --gradient-surface: linear-gradient(var(--card), var(--card));
+  --shadow-glow: 0 8px 18px -14px color-mix(in oklab, var(--accent) 30%, transparent);
+  --shadow-card: 0 10px 26px -22px color-mix(in oklab, var(--foreground) 34%, transparent);
 }
 
 @layer base {
@@ -113,7 +101,7 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 
   ::selection {
@@ -134,23 +122,24 @@
   }
 }
 
-/* Gradient text for headline accents */
-@utility text-gradient {
-  background-image: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+main > section:nth-of-type(even) {
+  background-color: var(--surface);
+  border-block: 1px solid var(--border);
 }
 
-/* Glassy panel used for cards, nav and form surfaces */
+/* Warm walnut emphasis for headline accents. */
+@utility text-gradient {
+  color: var(--accent);
+}
+
+/* Opaque paper surface used for cards, navigation and forms. */
 @utility glass {
-  background-image: var(--gradient-surface);
+  background: var(--card);
   border: 1px solid var(--color-border);
-  backdrop-filter: blur(16px) saturate(130%);
   box-shadow: var(--shadow-card);
 }
 
-/* Gradient hairline border on hover-able cards */
+/* Restrained tactile hover for interactive cards. */
 @utility card-glow {
   position: relative;
   transition:
@@ -158,55 +147,22 @@
     box-shadow 0.4s ease,
     border-color 0.4s ease;
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: var(--gradient-brand);
-    mask:
-      linear-gradient(#000 0 0) content-box exclude,
-      linear-gradient(#000 0 0);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-  }
-
   &:hover {
+    border-color: var(--primary);
     box-shadow: var(--shadow-glow);
-  }
-
-  &:hover::after {
-    opacity: 0.9;
   }
 }
 
 @utility bg-brand {
-  background-image: var(--gradient-brand);
+  background-color: var(--primary);
 }
 
 @utility glow-orb {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(90px);
-  opacity: 0.35;
-  pointer-events: none;
-  will-change: transform;
+  display: none;
 }
 
 @utility grid-lines {
-  background-image:
-    linear-gradient(
-      to right,
-      color-mix(in oklab, var(--foreground) 6%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      color-mix(in oklab, var(--foreground) 6%, transparent) 1px,
-      transparent 1px
-    );
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 75%);
+  background-image: linear-gradient(to right, color-mix(in oklab, var(--border) 30%, transparent) 1px, transparent 1px);
+  background-size: min(8vw, 96px) 100%;
+  opacity: 0.22;
 }

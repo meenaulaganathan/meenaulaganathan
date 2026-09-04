@@ -46,39 +46,39 @@ function DeveloperCore({ reduced }: { reduced: boolean }) {
         <mesh castShadow>
           <icosahedronGeometry args={[1.15, 0]} />
           <meshPhysicalMaterial
-            color="#00D9C0"
-            roughness={0.18}
-            metalness={0.85}
-            clearcoat={1}
-            clearcoatRoughness={0.15}
-            emissive="#083E3D"
-            emissiveIntensity={0.5}
+            color="#B98954"
+            roughness={0.42}
+            metalness={0.55}
+            clearcoat={0.35}
+            clearcoatRoughness={0.4}
+            emissive="#704B32"
+            emissiveIntensity={0.08}
           />
         </mesh>
 
         {/* Wireframe shell */}
         <mesh ref={shell}>
           <icosahedronGeometry args={[1.75, 1]} />
-          <meshBasicMaterial color="#38BDF8" wireframe transparent opacity={0.35} />
+          <meshBasicMaterial color="#704B32" wireframe transparent opacity={0.34} />
         </mesh>
 
         {/* Orbiting rings */}
         <mesh geometry={ringGeometry} rotation={[Math.PI / 2.2, 0, 0]}>
           <meshStandardMaterial
-            color="#00D9C0"
-            emissive="#00D9C0"
-            emissiveIntensity={1.1}
-            roughness={0.3}
-            metalness={0.6}
+            color="#B98954"
+            emissive="#704B32"
+            emissiveIntensity={0.08}
+            roughness={0.5}
+            metalness={0.45}
           />
         </mesh>
         <mesh geometry={ringGeometry} rotation={[Math.PI / 2.2, Math.PI / 2.6, 0.6]} scale={0.82}>
           <meshStandardMaterial
-            color="#38BDF8"
-            emissive="#38BDF8"
-            emissiveIntensity={0.9}
-            roughness={0.3}
-            metalness={0.6}
+            color="#704B32"
+            emissive="#704B32"
+            emissiveIntensity={0.06}
+            roughness={0.5}
+            metalness={0.45}
           />
         </mesh>
       </Float>
@@ -108,7 +108,7 @@ function Sparks({ count = 60 }: { count?: number }) {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.045} color="#7DE4F0" transparent opacity={0.6} sizeAttenuation />
+      <pointsMaterial size={0.04} color="#B98954" transparent opacity={0.35} sizeAttenuation />
     </points>
   );
 }
@@ -121,24 +121,24 @@ export default function HeroScene({ reduced = false }: { reduced?: boolean }) {
       gl={{ antialias: true, powerPreference: "high-performance" }}
       style={{ pointerEvents: "none" }}
     >
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[4, 6, 5]} intensity={1.6} />
-      <pointLight position={[-5, -3, 2]} intensity={40} color="#00D9C0" distance={12} />
-      <pointLight position={[5, 3, -2]} intensity={30} color="#38BDF8" distance={12} />
+      <ambientLight intensity={0.75} />
+      <directionalLight position={[4, 6, 5]} intensity={2} color="#FFF5E5" />
+      <pointLight position={[-5, -3, 2]} intensity={18} color="#B98954" distance={12} />
+      <pointLight position={[5, 3, -2]} intensity={14} color="#704B32" distance={12} />
 
       {/* Local lightformers — no CDN HDR fetch */}
       <Environment resolution={128}>
-        <Lightformer intensity={2.2} position={[0, 4, 2]} scale={[8, 8, 1]} color="#E0F9FF" />
+        <Lightformer intensity={2.2} position={[0, 4, 2]} scale={[8, 8, 1]} color="#FFF8EC" />
         <Lightformer
           intensity={1.4}
-          color="#38BDF8"
+          color="#D8B98D"
           position={[-5, 1, -1]}
           rotation-y={Math.PI / 2}
           scale={[16, 2, 1]}
         />
         <Lightformer
           intensity={1.2}
-          color="#00D9C0"
+          color="#8A6247"
           position={[5, -1, 1]}
           rotation-y={-Math.PI / 2}
           scale={[16, 2, 1]}
