@@ -28,10 +28,10 @@ export function Skills() {
 
       <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" gap={0.08}>
         {skills.map((skill) => {
-          const Icon = skillIcon[skill] ?? Code2;
+          const Icon = skillIcon[skill.name] ?? Code2;
           return (
             <motion.article
-              key={skill}
+              key={skill.name}
               variants={card3d}
               whileHover={{ y: -8, rotateX: 4, rotateY: -4 }}
               transition={{ duration: 0.35 }}
@@ -41,7 +41,10 @@ export function Skills() {
               <span className="glass inline-flex size-11 items-center justify-center rounded-xl">
                 <Icon className="size-5 text-accent" />
               </span>
-              <h3 className="font-display mt-4 text-lg font-semibold">{skill}</h3>
+              <h3 className="font-display mt-4 text-lg font-semibold">{skill.name}</h3>
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
+                {skill.purpose}
+              </p>
             </motion.article>
           );
         })}

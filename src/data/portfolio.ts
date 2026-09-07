@@ -48,15 +48,51 @@ export const highlights = [
 ];
 
 export const skills = [
-  "Java",
-  "C",
-  "SQL",
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React.js",
-  "Git",
-  "GitHub",
+  {
+    name: "Java",
+    purpose:
+      "Used for building backend applications, object-oriented software, APIs, and enterprise applications.",
+  },
+  {
+    name: "C",
+    purpose:
+      "Used for programming fundamentals, system-level programming, memory management, and understanding data structures.",
+  },
+  {
+    name: "SQL",
+    purpose:
+      "Used for storing, retrieving, updating, and managing data in relational databases.",
+  },
+  {
+    name: "HTML",
+    purpose:
+      "Used to create the structure and content of web pages and web applications.",
+  },
+  {
+    name: "CSS",
+    purpose:
+      "Used to style web pages, create layouts, and build responsive user interfaces.",
+  },
+  {
+    name: "JavaScript",
+    purpose:
+      "Used to add interactivity and dynamic functionality to web applications.",
+  },
+  {
+    name: "React.js",
+    purpose:
+      "Used to build modern, reusable, and interactive user interfaces for web applications.",
+  },
+  {
+    name: "Git",
+    purpose:
+      "Used to track code changes, manage versions, and collaborate on software projects.",
+  },
+  {
+    name: "GitHub",
+    purpose:
+      "Used to host, manage, and collaborate on code repositories and software projects.",
+  },
 ];
 
 export type Project = {
