@@ -15,6 +15,7 @@ export const profile = {
     "I build reliable, well-structured backend systems and clean web interfaces. My focus is on Java, SQL and core computer-science fundamentals, paired with modern web tooling like React.",
   location: "India",
   email: "meenaulaganathan09@gmail.com",
+  phone: "7904404608",
   // Social links — replace with your real profiles
   socials: {
     linkedin: "https://www.linkedin.com/in/meena-u-331169259/",

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Loader2, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Loader2, Mail, Phone, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { profile } from "@/data/portfolio";
@@ -71,6 +71,21 @@ export function Contact() {
             <span>
               <span className="block text-sm font-semibold">Email</span>
               <span className="block text-sm text-muted-foreground">{profile.email}</span>
+            </span>
+          </motion.a>
+
+          <motion.a
+            variants={fadeUp}
+            whileHover={{ y: -5 }}
+            href={`tel:+91${profile.phone}`}
+            className="glass card-glow flex items-center gap-4 rounded-2xl p-5"
+          >
+            <span className="glass inline-flex size-11 items-center justify-center rounded-xl">
+              <Phone className="size-5 text-accent" />
+            </span>
+            <span>
+              <span className="block text-sm font-semibold">Phone</span>
+              <span className="block text-sm text-muted-foreground">+91 {profile.phone}</span>
             </span>
           </motion.a>
 
