@@ -12,7 +12,7 @@ const server = (await import("../dist/server/index.mjs")).default;
 
 for (const route of routes) {
   const url = new URL(join(base, route).replaceAll("\\", "/"), "http://localhost");
-  const response = await server.fetch(new Request(url));
+  const response = await server.fetch(new Request(url), {}, { waitUntil() {}, passThroughOnException() {} });
   if (!response.ok) {
     throw new Error(`Failed to render ${url.pathname}: HTTP ${response.status}`);
   }
