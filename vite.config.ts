@@ -20,13 +20,5 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
-    // Prerender every page to plain static HTML. The GitHub Pages workflow
-    // sets NITRO_PRESET=static so the whole site lands in .output/public as
-    // static files. Prerendering only runs for that static build — the
-    // Lovable/Cloudflare build keeps its normal server output.
-    prerender:
-      process.env.NITRO_PRESET === "static"
-        ? { enabled: true, crawlLinks: true }
-        : undefined,
   },
 });
