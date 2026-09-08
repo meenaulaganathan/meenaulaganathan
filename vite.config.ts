@@ -29,6 +29,10 @@ export default defineConfig({
       prerender: {
         enabled: true,
         crawlLinks: true,
+        // The Lovable build pins a server preset whose output layout the
+        // prerenderer's preview server can't boot; only prerender where the
+        // static preset is honored (GitHub Actions sets NITRO_PRESET=static).
+        filter: () => process.env.NITRO_PRESET === "static",
       },
     },
   },
