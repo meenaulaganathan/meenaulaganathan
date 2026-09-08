@@ -7,6 +7,9 @@ export const getRouter = () => {
 
   const router = createRouter({
     routeTree,
+    // Matches vite's base ("/<repo>/" on GitHub Pages, "/" elsewhere) so
+    // client-side routing resolves correctly when hosted under a subpath.
+    basepath: import.meta.env.BASE_URL.replace(/\/$/, "") || "/",
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
