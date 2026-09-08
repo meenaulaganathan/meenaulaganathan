@@ -20,12 +20,13 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
-    // SPA mode: the portfolio is fully client-side, so the build emits a
-    // static index.html shell plus assets — no server runtime needed. With
-    // NITRO_PRESET=static (set by the GitHub Pages workflow) the output in
-    // .output/public is a plain static site GitHub Pages can host.
-    spa: {
-      enabled: true,
-    },
+    // Prerender every page to plain static HTML. The GitHub Pages workflow
+    // sets NITRO_PRESET=static so the whole site lands in .output/public as
+    // static files. Prerendering only runs for that static build — the
+    // Lovable/Cloudflare build keeps its normal server output.
+    prerender:
+      process.env.NITRO_PRESET === "static"
+        ? { enabled: true, crawlLinks: true }
+        : undefined,
   },
 });
