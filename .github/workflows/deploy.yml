@@ -32,11 +32,13 @@ jobs:
 
       # GITHUB_ACTIONS and GITHUB_REPOSITORY are set automatically by the
       # runner; vite.config.ts uses them to build with the /<repo>/ base path.
-      - name: Build
+      - name: Build static frontend
         run: bun run build
 
-      # Render the built app to plain static HTML in dist/client.
-      - name: Render static pages
+      # Writes dist/client/index.html, 404.html and .nojekyll. Static only:
+      # it uses the server bundle for prerendering when one exists, and simply
+      # emits a client-rendered shell when it does not.
+      - name: Generate static pages
         run: node scripts/render-static.mjs
         env:
           STATIC_BASE: /${{ github.event.repository.name }}/
