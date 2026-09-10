@@ -4,7 +4,6 @@
  * ============================================================
  */
 
-import resumeAsset from "@/assets/Meena-Resume.pdf.asset.json";
 
 export const profile = {
   firstName: "Meena",
