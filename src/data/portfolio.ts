@@ -4,7 +4,6 @@
  * ============================================================
  */
 
-import resumeAsset from "@/assets/Meena-Resume.pdf.asset.json";
 
 export const profile = {
   firstName: "Meena",
@@ -21,10 +20,10 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/meena-u-331169259/",
     github: "https://github.com/meenaulaganathan",
   },
-  // Resume download: hosted via Lovable Assets CDN.
-  resumePath: resumeAsset.url,
-  // Resume view: served directly from /public so ad blockers never block it.
-  resumeViewPath: "/resume/Meena-Resume.pdf#view=FitH",
+  // Resume PDF: served from /public so it works on any host (incl. GitHub Pages).
+  // BASE_URL makes the path correct under a repo sub-path like /meenaulaganathan/.
+  resumePath: `${import.meta.env.BASE_URL}resume/Meena-Resume.pdf`,
+  resumeViewPath: `${import.meta.env.BASE_URL}resume/Meena-Resume.pdf#view=FitH`,
   resumeFileName: "Meena-Resume.pdf",
 
 };
