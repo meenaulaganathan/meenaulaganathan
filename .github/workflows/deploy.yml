@@ -30,23 +30,22 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      # GITHUB_ACTIONS and GITHUB_REPOSITORY are set automatically by the
-      # runner; vite.config.ts uses them to build with the /<repo>/ base path.
-      - name: Build static frontend
-        run: bun run build
-
-      # Writes dist/client/index.html, 404.html and .nojekyll. Static only:
-      # it uses the server bundle for prerendering when one exists, and simply
-      # emits a client-rendered shell when it does not.
-      - name: Generate static pages
-        run: node scripts/render-static.mjs
+      # Fully static (SPA) build. No SSR and no dist/server bundle involved.
+      # STATIC_BASE makes every asset and route resolve under /<repo>/.
+      - name: Build static site
+        run: bun run build:static
         env:
           STATIC_BASE: /${{ github.event.repository.name }}/
+
+      - name: Add 404.html and .nojekyll
+        run: |
+          cp dist-static/index.html dist-static/404.html
+          touch dist-static/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/client
+          path: dist-static
 
   deploy:
     needs: build

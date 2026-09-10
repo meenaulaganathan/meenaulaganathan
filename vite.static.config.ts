@@ -8,8 +8,8 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
-const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1];
-const base = process.env.STATIC_BASE ?? (process.env.GITHUB_ACTIONS && repoName ? `/${repoName}/` : "/");
+const repoName = process.env['GITHUB_REPOSITORY']?.split("/")[1];
+const base = process.env['STATIC_BASE'] ?? (process.env['GITHUB_ACTIONS'] && repoName ? `/${repoName}/` : "/");
 
 export default defineConfig({
   base,
