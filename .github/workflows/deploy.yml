@@ -35,7 +35,7 @@ jobs:
       - name: Build static site
         run: bun run build:static
         env:
-          STATIC_BASE: /${{ github.event.repository.name }}/
+          STATIC_BASE: ${{ endsWith(github.event.repository.name, '.github.io') && '/' || format('/{0}/', github.event.repository.name) }}
 
       - name: Add 404.html and .nojekyll
         run: |
