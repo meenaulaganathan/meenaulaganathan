@@ -1,25 +1,30 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Check, Terminal } from "lucide-react";
 import { projects } from "@/data/portfolio";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { EASE } from "./motion-primitives";
 import { Chip, SectionHeading, SectionShell } from "./ui-bits";
 
-const desktopVariants = [
-  { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0 } },
-  { hidden: { opacity: 0, y: 60 }, visible: { opacity: 1, y: 0 } },
-  { hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0 } },
-];
-
-const mobileVariant = {
+const mobileVariant: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
 };
 
-const reducedVariant = {
+const reducedVariant: Variants = {
   hidden: { opacity: 1, x: 0, y: 0 },
   visible: { opacity: 1, x: 0, y: 0 },
 };
+
+function desktopVariant(index: number): Variants {
+  switch (index) {
+    case 0:
+      return { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0 } };
+    case 1:
+      return { hidden: { opacity: 0, y: 60 }, visible: { opacity: 1, y: 0 } };
+    default:
+      return { hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0 } };
+  }
+}
 
 export function Projects() {
   const isMobile = useIsMobile();
@@ -40,7 +45,7 @@ export function Projects() {
             ? reducedVariant
             : isMobile
               ? mobileVariant
-              : desktopVariants[i];
+              : desktopVariant(i);
 
           return (
             <motion.article
