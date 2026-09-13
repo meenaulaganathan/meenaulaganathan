@@ -187,6 +187,30 @@ export const education: EducationItem[] = [
   },
 ];
 
+export type Certification = {
+  name: string;
+  organization: string;
+  year: string;
+};
+
+export const certifications: Certification[] = [
+  {
+    name: "Privacy and Security in Online Social Media",
+    organization: "NPTEL",
+    year: "2024",
+  },
+  {
+    name: "Joy of Computing using Python",
+    organization: "NPTEL",
+    year: "2024",
+  },
+  {
+    name: "Google Data Analytics",
+    organization: "Coursera",
+    year: "2024",
+  },
+];
+
 export const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
