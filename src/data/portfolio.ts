@@ -51,17 +51,17 @@ export const skills = [
   {
     name: "Java",
     purpose:
-      "Used for building backend applications, object-oriented software, APIs, and enterprise applications.",
+      "Used for backend development, object-oriented programming, APIs, and enterprise applications.",
   },
   {
     name: "C",
     purpose:
-      "Used for programming fundamentals, system-level programming, memory management, and understanding data structures.",
+      "Used for programming fundamentals, problem-solving, memory management, and data structures.",
   },
   {
     name: "SQL",
     purpose:
-      "Used for storing, retrieving, updating, and managing data in relational databases.",
+      "Used for creating, storing, retrieving, updating, and managing data in relational databases.",
   },
   {
     name: "HTML",
@@ -71,27 +71,12 @@ export const skills = [
   {
     name: "CSS",
     purpose:
-      "Used to style web pages, create layouts, and build responsive user interfaces.",
+      "Used to style websites, including layouts, colors, typography, spacing, and responsive design.",
   },
   {
     name: "JavaScript",
     purpose:
       "Used to add interactivity and dynamic functionality to web applications.",
-  },
-  {
-    name: "React.js",
-    purpose:
-      "Used to build modern, reusable, and interactive user interfaces for web applications.",
-  },
-  {
-    name: "Git",
-    purpose:
-      "Used to track code changes, manage versions, and collaborate on software projects.",
-  },
-  {
-    name: "GitHub",
-    purpose:
-      "Used to host, manage, and collaborate on code repositories and software projects.",
   },
 ];
 

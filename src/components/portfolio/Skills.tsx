@@ -1,20 +1,7 @@
 import { motion } from "framer-motion";
-import { Boxes, Code2, Database, Github, Globe, Wrench, type LucideIcon } from "lucide-react";
 import { skills } from "@/data/portfolio";
-import { RevealGroup, card3d } from "./motion-primitives";
+import { RevealGroup, fadeUp } from "./motion-primitives";
 import { SectionHeading, SectionShell } from "./ui-bits";
-
-const skillIcon: Record<string, LucideIcon> = {
-  Java: Code2,
-  C: Code2,
-  SQL: Database,
-  HTML: Globe,
-  CSS: Globe,
-  JavaScript: Code2,
-  "React.js": Boxes,
-  Git: Wrench,
-  GitHub: Github,
-};
 
 export function Skills() {
   return (
@@ -26,28 +13,26 @@ export function Skills() {
         description="Languages, frameworks and tools I use to build software and backend systems."
       />
 
-      <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" gap={0.08}>
-        {skills.map((skill) => {
-          const Icon = skillIcon[skill.name] ?? Code2;
-          return (
-            <motion.article
-              key={skill.name}
-              variants={card3d}
-              whileHover={{ y: -8, rotateX: 4, rotateY: -4 }}
-              transition={{ duration: 0.35 }}
-              style={{ transformPerspective: 900 }}
-              className="glass card-glow group flex flex-col items-center justify-center rounded-2xl p-6 text-center"
-            >
-              <span className="glass inline-flex size-11 items-center justify-center rounded-xl">
-                <Icon className="size-5 text-accent" />
-              </span>
-              <h3 className="font-display mt-4 text-lg font-semibold">{skill.name}</h3>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
-                {skill.purpose}
-              </p>
-            </motion.article>
-          );
-        })}
+      <RevealGroup
+        className="mt-16 grid gap-x-16 gap-y-0 md:grid-cols-2"
+        gap={0.09}
+      >
+        {skills.map((skill) => (
+          <motion.article
+            key={skill.name}
+            variants={fadeUp}
+            whileHover={{ x: 4 }}
+            transition={{ duration: 0.3 }}
+            className="group border-b border-border py-8 first:pt-0 md:[&:nth-child(2)]:pt-0"
+          >
+            <h3 className="font-display text-2xl font-semibold text-foreground transition-colors duration-300 group-hover:text-accent">
+              {skill.name}
+            </h3>
+            <p className="mt-3 max-w-xl text-[0.95rem] leading-7 text-muted-foreground">
+              {skill.purpose}
+            </p>
+          </motion.article>
+        ))}
       </RevealGroup>
     </SectionShell>
   );
