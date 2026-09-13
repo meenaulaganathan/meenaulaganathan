@@ -78,6 +78,21 @@ export const skills = [
     purpose:
       "Used to add interactivity and dynamic functionality to web applications.",
   },
+  {
+    name: "Git",
+    purpose:
+      "Used to track code changes, manage versions, and support collaborative software development.",
+  },
+  {
+    name: "GitHub",
+    purpose:
+      "Used to host code repositories, collaborate on projects, and manage software development workflows.",
+  },
+  {
+    name: "Data Analysis",
+    purpose:
+      "Used to examine, interpret, and present data to identify patterns and support informed decisions.",
+  },
 ];
 
 export type Project = {
