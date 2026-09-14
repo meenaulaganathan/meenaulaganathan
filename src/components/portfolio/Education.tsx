@@ -33,10 +33,10 @@ export function Education() {
             <li key={item.degree} className="border-b border-border">
               <motion.article
                 initial={reduced ? false : { opacity: 0, x: i % 2 === 0 ? -28 : 28, y: 24, scale: 0.98 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.62, delay: reduced ? 0 : i * 0.08, ease: EASE }}
-                whileHover={reduced ? undefined : { x: 5 }}
+                whileHover={reduced ? {} : { x: 5 }}
                 className="group grid gap-6 py-9 sm:grid-cols-[7rem_minmax(0,1fr)] md:grid-cols-[9rem_minmax(0,0.9fr)_minmax(16rem,1.1fr)] md:gap-10 md:py-11"
               >
                 <div className="flex items-start justify-between gap-4 sm:block">

@@ -29,7 +29,7 @@ export function Certifications() {
             initial={reduced ? false : { opacity: 0, x: i % 2 === 0 ? -34 : 34, y: 18, scale: 0.985 }}
             whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.35 }}
-            whileHover={reduced ? undefined : { x: i % 2 === 0 ? 5 : -5 }}
+            whileHover={reduced ? {} : { x: i % 2 === 0 ? 5 : -5 }}
             transition={{ duration: 0.58, delay: reduced ? 0 : i * 0.09, ease: EASE }}
             className="group grid gap-4 border-b border-border py-8 sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:items-center sm:gap-7 md:py-10"
           >
