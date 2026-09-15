@@ -115,3 +115,5 @@ export function Certifications() {
         </div>
       </div>
     </section>
+  );
+}
