@@ -15,7 +15,7 @@ export function Certifications() {
           <motion.span
             key={position}
             className={`absolute size-1 rounded-full bg-cert-accent/45 ${position}`}
-            animate={reduced ? undefined : { y: [0, -9, 0], opacity: [0.28, 0.7, 0.28] }}
+            animate={reduced ? false : { y: [0, -9, 0], opacity: [0.28, 0.7, 0.28] }}
             transition={{ duration: 4.5 + index * 0.7, repeat: Infinity, ease: "easeInOut", delay: index * 0.45 }}
           />
         ))}
@@ -51,7 +51,7 @@ export function Certifications() {
             initial={reduced ? false : { opacity: 0, x: 28, rotateY: -12 }}
             whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
             viewport={{ once: true, amount: 0.45 }}
-            animate={reduced ? undefined : { y: [0, -8, 0] }}
+            animate={reduced ? false : { y: [0, -8, 0] }}
             transition={reduced ? { duration: 0 } : { opacity: { duration: 0.75, ease: EASE }, x: { duration: 0.75, ease: EASE }, rotateY: { duration: 0.75, ease: EASE }, y: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
             className="relative mx-auto aspect-[4/3] w-full max-w-md [perspective:1000px]"
           >
@@ -78,7 +78,7 @@ export function Certifications() {
                 initial={reduced ? false : { opacity: 0, y: 34, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.28 }}
-                whileHover={reduced ? undefined : { y: -7, rotateX: 1.5 }}
+                whileHover={reduced ? {} : { y: -7, rotateX: 1.5 }}
                 transition={{ duration: 0.58, delay: reduced ? 0 : i * 0.1, ease: EASE }}
                 className="certification-glass group relative flex min-h-72 flex-col rounded-lg p-7 transition-[border-color,box-shadow] duration-300 hover:border-cert-accent/55 hover:shadow-[var(--shadow-certification-hover)] sm:p-8"
               >
@@ -103,7 +103,7 @@ export function Certifications() {
                   <motion.span
                     aria-hidden="true"
                     className="flex size-10 shrink-0 items-center justify-center rounded-full border border-cert-border text-cert-accent"
-                    whileHover={reduced ? undefined : { x: 2, y: -2 }}
+                    whileHover={reduced ? {} : { x: 2, y: -2 }}
                     transition={{ duration: 0.22 }}
                   >
                     <ArrowUpRight className="size-4" />
