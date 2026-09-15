@@ -41,6 +41,13 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-cert-background: var(--cert-background);
+  --color-cert-surface: var(--cert-surface);
+  --color-cert-surface-strong: var(--cert-surface-strong);
+  --color-cert-foreground: var(--cert-foreground);
+  --color-cert-muted: var(--cert-muted);
+  --color-cert-accent: var(--cert-accent);
+  --color-cert-border: var(--cert-border);
 }
 
 :root {
@@ -76,6 +83,19 @@
   --gradient-surface: linear-gradient(var(--card), var(--card));
   --shadow-glow: 0 8px 18px -14px color-mix(in oklab, var(--accent) 30%, transparent);
   --shadow-card: 0 10px 26px -22px color-mix(in oklab, var(--foreground) 34%, transparent);
+
+  /* Certifications: dark umber stage with warm parchment glass. */
+  --cert-background: oklch(0.235 0.038 48);
+  --cert-surface: oklch(0.34 0.045 52 / 0.7);
+  --cert-surface-strong: oklch(0.43 0.052 58 / 0.72);
+  --cert-foreground: oklch(0.955 0.025 76);
+  --cert-muted: oklch(0.79 0.035 69);
+  --cert-accent: oklch(0.74 0.09 70);
+  --cert-border: oklch(0.77 0.07 70 / 0.25);
+  --gradient-certifications: linear-gradient(135deg, var(--cert-background), oklch(0.285 0.047 52) 55%, oklch(0.22 0.034 45));
+  --gradient-certificate-glass: linear-gradient(135deg, var(--cert-surface-strong), var(--cert-surface));
+  --shadow-certification: 0 24px 60px -34px color-mix(in oklab, var(--cert-accent) 34%, transparent);
+  --shadow-certification-hover: 0 30px 70px -30px color-mix(in oklab, var(--cert-accent) 48%, transparent);
 }
 
 @layer base {
@@ -165,4 +185,16 @@ main > section:nth-of-type(even) {
   background-image: linear-gradient(to right, color-mix(in oklab, var(--border) 30%, transparent) 1px, transparent 1px);
   background-size: min(8vw, 96px) 100%;
   opacity: 0.22;
+}
+
+@utility certifications-stage {
+  background: var(--gradient-certifications);
+  color: var(--cert-foreground);
+}
+
+@utility certification-glass {
+  background: var(--gradient-certificate-glass);
+  border: 1px solid var(--cert-border);
+  box-shadow: var(--shadow-certification);
+  backdrop-filter: blur(18px) saturate(115%);
 }
