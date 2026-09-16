@@ -1,53 +1,76 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Download, FolderCode, Mail } from "lucide-react";
-import { Suspense, lazy, useEffect, useRef, useState } from "react";
+import { ArrowDown, Braces, Coffee, Database, Download, FolderCode, Mail } from "lucide-react";
+import { useRef } from "react";
+import portrait from "@/assets/meena-portrait.png";
 import { profile } from "@/data/portfolio";
 import { EASE, stagger } from "./motion-primitives";
 import { ActionLink, SectionLabel } from "./ui-bits";
 import { ViewResumeAction } from "./ViewResumeAction";
 
-// Heavy 3D scene: loaded only in the browser, after hydration.
-const HeroScene = lazy(() => import("@/components/three/HeroScene"));
+const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
-function hasWebGL() {
-  try {
-    const canvas = document.createElement("canvas");
-    return Boolean(
-      window.WebGLRenderingContext &&
-        (canvas.getContext("webgl") || canvas.getContext("experimental-webgl")),
-    );
-  } catch {
-    return false;
-  }
-}
+function PortraitVisual({ reduced }: { reduced: boolean }) {
+  const float = (delay: number, distance = 7) =>
+    reduced
+      ? {}
+      : {
+          animate: { y: [0, -distance, 0] },
+          transition: { duration: 4, delay, repeat: Infinity, ease: "easeInOut" as const },
+        };
 
-/** Static, always-visible fallback for no-WebGL / reduced-motion / low-end devices. */
-function SceneFallback() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="bg-brand size-40 rounded-[2rem] opacity-70 blur-[2px] sm:size-56" />
-      <div className="glass absolute size-40 rotate-45 rounded-[2rem] sm:size-56" />
-      <span className="font-mono absolute text-sm text-muted-foreground">&lt;/&gt;</span>
-    </div>
+    <motion.div
+      initial={reduced ? false : { opacity: 0, y: 28 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.35, ease: EASE }}
+      className="relative mx-auto flex h-full w-full max-w-[27rem] items-center justify-center px-8 py-5 sm:px-10"
+    >
+      <motion.figure
+        {...(reduced ? {} : { whileHover: { y: -5, rotate: 0.5 } })}
+        transition={{ duration: 0.35, ease: EASE }}
+        className="portrait-frame relative aspect-[4/5] w-full max-w-[20rem] overflow-hidden rounded-[1.75rem] border border-primary/70 p-2 sm:max-w-[22rem]"
+      >
+        <div className="h-full overflow-hidden rounded-[1.35rem] bg-card">
+          <img
+            src={portrait}
+            alt={`${profile.fullName}, aspiring software and backend developer`}
+            className="h-full w-full object-cover object-top"
+          />
+        </div>
+      </motion.figure>
+
+      <motion.div
+        {...float(0.1)}
+        aria-hidden
+        className="glass absolute top-[15%] left-0 flex size-12 items-center justify-center rounded-lg text-accent sm:size-14"
+      >
+        <Coffee className="size-5 sm:size-6" />
+      </motion.div>
+      <motion.div
+        {...float(0.7, 6)}
+        aria-hidden
+        className="glass absolute top-[31%] right-0 flex size-11 items-center justify-center rounded-lg text-accent sm:size-13"
+      >
+        <Braces className="size-5" />
+      </motion.div>
+      <motion.div
+        {...float(1.25, 8)}
+        aria-hidden
+        className="glass absolute right-[3%] bottom-[16%] flex size-12 items-center justify-center rounded-lg text-accent sm:size-14"
+      >
+        <Database className="size-5 sm:size-6" />
+      </motion.div>
+    </motion.div>
   );
 }
 
-const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
 export function Hero() {
   const reduced = useReducedMotion() ?? false;
-  const [scene, setScene] = useState<"pending" | "on" | "off">("pending");
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
   const fade = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
-
-  useEffect(() => {
-    // Skip the 3D scene on low-core devices to keep animations smooth.
-    const lowEnd = (navigator.hardwareConcurrency ?? 8) <= 4;
-    setScene(hasWebGL() && !lowEnd ? "on" : "off");
-  }, []);
 
   const lines = [
     { text: `Hi, I'm ${profile.firstName}`, className: "text-4xl sm:text-6xl md:text-7xl" },
@@ -137,15 +160,9 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Interactive 3D object */}
-        <div className="relative h-[22rem] w-full sm:h-[26rem] lg:h-[34rem]">
-          {scene === "on" && !reduced ? (
-            <Suspense fallback={<SceneFallback />}>
-              <HeroScene reduced={reduced} />
-            </Suspense>
-          ) : (
-            <SceneFallback />
-          )}
+        {/* Professional portrait */}
+        <div className="relative h-[24rem] w-full sm:h-[29rem] lg:h-[34rem]">
+          <PortraitVisual reduced={reduced} />
         </div>
       </motion.div>
 
