@@ -6,4 +6,4 @@
 - [x] Replace the old Education timeline with modern scroll-reveal content blocks.
 - [x] Match Certifications to the new motion language and add scroll progress.
 - [x] Verify the redesigned sections on desktop and mobile.
-- [ ] Replace the Home abstract graphic with the unchanged portrait and subtle developer details.
+- [x] Replace the Home abstract graphic with the unchanged portrait and subtle developer details.
