@@ -26,7 +26,7 @@ function PortraitVisual({ reduced }: { reduced: boolean }) {
       className="relative mx-auto flex h-full w-full max-w-[27rem] items-center justify-center px-8 py-5 sm:px-10"
     >
       <motion.figure
-        whileHover={reduced ? undefined : { y: -5, rotate: 0.5 }}
+        {...(reduced ? {} : { whileHover: { y: -5, rotate: 0.5 } })}
         transition={{ duration: 0.35, ease: EASE }}
         className="portrait-frame relative aspect-[4/5] w-full max-w-[20rem] overflow-hidden rounded-[1.75rem] border border-primary/70 p-2 sm:max-w-[22rem]"
       >
