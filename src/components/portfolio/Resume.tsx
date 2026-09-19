@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, FileText } from "lucide-react";
-import resumePreview from "@/assets/resume-preview.jpg.asset.json";
+import resumePreviewUrl from "@/assets/resume-preview.jpg";
 import { profile } from "@/data/portfolio";
 import { Reveal, scaleFade } from "./motion-primitives";
 import { ActionLink, SectionHeading, SectionShell } from "./ui-bits";
@@ -29,7 +29,7 @@ export function Resume() {
               className="glass mx-auto w-40 shrink-0 overflow-hidden rounded-xl p-2 sm:w-48"
             >
               <img
-                src={resumePreview.url}
+                src={resumePreviewUrl}
                 alt={`First page of ${profile.fullName}'s resume`}
                 loading="lazy"
                 className="w-full rounded-lg"
@@ -64,7 +64,7 @@ export function Resume() {
                 </ActionLink>
               </div>
 
-              {/* Update the resume file by replacing the asset in src/assets/Meena-Resume.pdf.asset.json */}
+              {/* Update the resume file by replacing public/resume/Meena-Resume.pdf. */}
               <p className="mt-4 font-mono text-xs text-muted-foreground">
                 {profile.resumeViewPath}
               </p>

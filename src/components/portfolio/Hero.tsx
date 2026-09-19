@@ -1,7 +1,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Braces, Coffee, Database, Download, FolderCode, Mail } from "lucide-react";
 import { useRef } from "react";
-import portraitAsset from "@/assets/meena-portrait.jpg.asset.json";
+import portraitUrl from "@/assets/meena-portrait.jpg";
 import { profile } from "@/data/portfolio";
 import { EASE, stagger } from "./motion-primitives";
 import { ActionLink, SectionLabel } from "./ui-bits";
@@ -32,7 +32,7 @@ function PortraitVisual({ reduced }: { reduced: boolean }) {
       >
         <div className="h-full overflow-hidden rounded-[1.35rem] bg-card">
           <img
-            src={portraitAsset.url}
+            src={portraitUrl}
             alt={`${profile.fullName}, aspiring software and backend developer`}
             className="h-full w-full object-cover object-top"
           />
