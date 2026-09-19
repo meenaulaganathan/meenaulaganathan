@@ -31,11 +31,11 @@ jobs:
         run: bun install --frozen-lockfile
 
       # Fully static (SPA) build. No SSR and no dist/server bundle involved.
-      # STATIC_BASE makes every asset and route resolve under /<repo>/.
+      # The project site is served from this repository subdirectory.
       - name: Build static site
         run: bun run build:static
         env:
-          STATIC_BASE: ${{ endsWith(github.event.repository.name, '.github.io') && '/' || format('/{0}/', github.event.repository.name) }}
+          STATIC_BASE: /meenaulaganathan/
 
       - name: Add 404.html and .nojekyll
         run: |
