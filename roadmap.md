@@ -7,3 +7,4 @@
 - [x] Match Certifications to the new motion language and add scroll progress.
 - [x] Verify the redesigned sections on desktop and mobile.
 - [x] Replace the Home abstract graphic with the unchanged portrait and subtle developer details.
+- [x] Make images, navigation, and resume links compatible with the GitHub Pages repository path.
